@@ -7,21 +7,19 @@ const mainSwiper = new Swiper('.main-swiper-container', {
   },
 });
 
-var gallerySliders = document.querySelectorAll('.gallery-container');
+const gallerySliders = document.querySelectorAll('.gallery-container');
 
 gallerySliders.forEach(function (slider, index) {
-  var paginationClass = 'custom-pagination-' + index;
+  const paginationClass = 'custom-pagination-' + index;
 
-  // Pagination container'ı bul
-  var paginationContainer = slider.querySelector('.swiper-pagination');
+  const paginationContainer = slider.querySelector('.swiper-pagination');
   paginationContainer.classList.add(paginationClass);
 
-  // Swiper oluştur
-  var innerSlider = new Swiper(slider, {
+  const innerSlider = new Swiper(slider, {
     loop: true,
     autoplay: false,
     spaceBetween: 8,
-    speed: 600,
+    speed: 800, // Geçiş hızını artır
     grabCursor: true,
     pagination: {
       el: '.' + paginationClass,
@@ -29,41 +27,81 @@ gallerySliders.forEach(function (slider, index) {
       renderBullet: function (index, className) {
         return '<span class="' + className + '"></span>';
       },
-      effect: 'slide',
     },
   });
 
-  // Mouse hareketini dinle
+  let isMoving = false; // Hareket durumu kontrolü
+
   slider.addEventListener('mousemove', function (event) {
-    var sliderRect = slider.getBoundingClientRect();
-    var mouseX = event.clientX - sliderRect.left;
-    var sliderWidth = sliderRect.width;
+    if (isMoving) return; // Eğer hareket ediyorsa çık
+
+    const sliderRect = slider.getBoundingClientRect();
+    const mouseX = event.clientX - sliderRect.left;
+    const sliderWidth = sliderRect.width;
 
     // Solda mı sağda mı kontrol et
+    isMoving = true; // Hareket ediyoruz
     if (mouseX < sliderWidth / 2) {
-      if (innerSlider.autoplay.running) {
-        innerSlider.autoplay.stop();
-      }
       innerSlider.slidePrev();
     } else {
-      if (innerSlider.autoplay.running) {
-        innerSlider.autoplay.stop();
-      }
       innerSlider.slideNext();
     }
+
+    setTimeout(() => {
+      isMoving = false; // Hareket durumu sıfırla
+    }, 300); // 300ms bekle
   });
 
-  // Mouse girdiğinde autoplay başlat
   slider.addEventListener('mouseenter', function () {
     innerSlider.params.autoplay = { delay: 500 };
     innerSlider.autoplay.start();
   });
 
-  // Mouse çıktığında autoplay durdur
   slider.addEventListener('mouseleave', function () {
     innerSlider.autoplay.stop();
   });
+
+  // Slidera tıklama olayı ekle
+  slider.addEventListener('mousedown', function (event) {
+    event.preventDefault(); // Varsayılan davranışı engelle
+  });
 });
+
+
+const modal = document.getElementById('image-modal');
+const modalImg = document.getElementById('modal-img');
+const closeModal = document.querySelector('.close');
+
+// Tüm görseller için tıklama olayını ekle
+document.querySelectorAll('.product-image').forEach(image => {
+  image.addEventListener('click', function() {
+    modal.style.display = "flex"; // Modalı aç
+    modalImg.src = this.src; // Tıklanan görseli modalda göster
+  });
+});
+
+// Modalı kapatma olayı
+closeModal.addEventListener('click', function() {
+  modal.style.display = "none"; // Modalı gizle
+});
+
+// Modal dışına tıklanırsa kapatma
+modal.addEventListener('click', function(event) {
+  // Eğer tıklanan öğe modalın kendisi ise modalı kapat
+  if (event.target === modal) {
+    modal.style.display = "none"; // Modalı gizle
+  }
+});
+
+// Escape tuşuna basıldığında modalı kapatma
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    modal.style.display = "none"; // Modalı gizle
+  }
+});
+
+
+
 
 
 
