@@ -18,6 +18,10 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@latest/swiper-bundle.min.css" />
 
@@ -43,33 +47,229 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="slider-title">Menü</h2>
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">Tüm</div>
-            <div class="swiper-slide">Mermer Merve</div>
-            <div class="swiper-slide">Dünyanın en uzun başlığı</div>
-            <div class="swiper-slide">Çorba</div>
-            <div class="swiper-slide">Bülent Ersoy Şarkıları</div>
-            <div class="swiper-slide">Döner</div>
-            <div class="swiper-slide">Pizza</div>
-            <div class="swiper-slide">Hamburger</div>
-            <div class="swiper-slide">Sıcak</div>
-            <div class="swiper-slide">Soğuk</div>
-            <div class="swiper-slide">Latte</div>
-            <div class="swiper-slide">Kahve</div>
-            <div class="swiper-slide">Çay</div>
-            <div class="swiper-slide">Hamza</div>
+        <div class="swiper-container main-swiper-container">
+          <div class="swiper-wrapper menu-wrapper">
+            <div class="swiper-slide menu-slide">Tüm</div>
+            <div class="swiper-slide menu-slide">Mermer Merve</div>
+            <div class="swiper-slide menu-slide">Dünyanın en uzun başlığı</div>
+            <div class="swiper-slide menu-slide">Çorba</div>
+            <div class="swiper-slide menu-slide">Bülent Ersoy Şarkıları</div>
+            <div class="swiper-slide menu-slide">Döner</div>
+            <div class="swiper-slide menu-slide">Pizza</div>
+            <div class="swiper-slide menu-slide">Hamburger</div>
+            <div class="swiper-slide menu-slide">Sıcak</div>
+            <div class="swiper-slide menu-slide">Soğuk</div>
+            <div class="swiper-slide menu-slide">Latte</div>
+            <div class="swiper-slide menu-slide">Kahve</div>
+            <div class="swiper-slide menu-slide">Çay</div>
+            <div class="swiper-slide menu-slide">Hamza</div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 card-wrapper">
         <div class="menu-card">
+          <div class="card-img swiper-container gallery-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide gallery-slide">
+                <img src="img/products/1.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="img/products/2.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="img/products/3.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="img/products/4.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="img/products/5.jpg" class="img-fluid" alt="">
+              </div>
+            </div>
+            <div class="swiper-pagination menu-pagination"></div>
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/2.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/3.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/4.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/5.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/6.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/1.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/2.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/3.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/4.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/5.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 card-wrapper">
+        <div class="menu-card">
+          <div class="card-img">
+            <img src="img/products/6.jpg" class="img-fluied" alt="">
+          </div>
+          <div class="card-price">
+            <h3>Tavuk Döner Kebap</h3>
+            <span>450 TL</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur beatae blanditiis deserunt dolor et eum, hic in labore minima molestiae non quia quis quisquam repudiandae tempora voluptate voluptatum. Nihil, odio?</p>
+            <span>09.12.2023</span>
+          </div>
         </div>
       </div>
     </div>
