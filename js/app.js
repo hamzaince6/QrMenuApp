@@ -18,7 +18,7 @@ gallerySliders.forEach(function (slider, index) {
   const innerSlider = new Swiper(slider, {
     loop: true,
     autoplay: {
-      delay: 5000, // Her 5 saniyede bir geçiş
+      delay: 3000,
       disableOnInteraction: false,
     },
     spaceBetween: 8,
@@ -35,11 +35,10 @@ gallerySliders.forEach(function (slider, index) {
 
   let isMoving = false;
 
-  // Mobilde hover kaldır, sadece otomatik oynat
   if (window.matchMedia("(max-width: 768px)").matches) {
-    innerSlider.params.autoplay = { delay: 5000, disableOnInteraction: false };
+    innerSlider.params.autoplay = { delay: 3000, disableOnInteraction: false };
   } else {
-    // Masaüstü için mouse hareketi ile geçiş
+
     slider.addEventListener('mousemove', function (event) {
       if (isMoving) return;
 
@@ -68,7 +67,6 @@ gallerySliders.forEach(function (slider, index) {
     });
   }
 
-  // Slidera tıklama olayı ekle
   slider.addEventListener('mousedown', function (event) {
     event.preventDefault();
   });
