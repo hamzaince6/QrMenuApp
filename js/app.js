@@ -17,9 +17,12 @@ gallerySliders.forEach(function (slider, index) {
 
   const innerSlider = new Swiper(slider, {
     loop: true,
-    autoplay: false,
+    autoplay: {
+      delay: 5000, // Her 5 saniyede bir geçiş
+      disableOnInteraction: false,
+    },
     spaceBetween: 8,
-    speed: 800, // Geçiş hızını artır
+    speed: 800,
     grabCursor: true,
     pagination: {
       el: '.' + paginationClass,
@@ -30,42 +33,48 @@ gallerySliders.forEach(function (slider, index) {
     },
   });
 
-  let isMoving = false; // Hareket durumu kontrolü
+  let isMoving = false;
 
-  slider.addEventListener('mousemove', function (event) {
-    if (isMoving) return; // Eğer hareket ediyorsa çık
+  // Mobilde hover kaldır, sadece otomatik oynat
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    innerSlider.params.autoplay = { delay: 5000, disableOnInteraction: false };
+  } else {
+    // Masaüstü için mouse hareketi ile geçiş
+    slider.addEventListener('mousemove', function (event) {
+      if (isMoving) return;
 
-    const sliderRect = slider.getBoundingClientRect();
-    const mouseX = event.clientX - sliderRect.left;
-    const sliderWidth = sliderRect.width;
+      const sliderRect = slider.getBoundingClientRect();
+      const mouseX = event.clientX - sliderRect.left;
+      const sliderWidth = sliderRect.width;
 
-    // Solda mı sağda mı kontrol et
-    isMoving = true; // Hareket ediyoruz
-    if (mouseX < sliderWidth / 2) {
-      innerSlider.slidePrev();
-    } else {
-      innerSlider.slideNext();
-    }
+      isMoving = true;
+      if (mouseX < sliderWidth / 2) {
+        innerSlider.slidePrev();
+      } else {
+        innerSlider.slideNext();
+      }
 
-    setTimeout(() => {
-      isMoving = false; // Hareket durumu sıfırla
-    }, 300); // 300ms bekle
-  });
+      setTimeout(() => {
+        isMoving = false;
+      }, 300);
+    });
 
-  slider.addEventListener('mouseenter', function () {
-    innerSlider.params.autoplay = { delay: 500 };
-    innerSlider.autoplay.start();
-  });
+    slider.addEventListener('mouseenter', function () {
+      innerSlider.autoplay.start();
+    });
 
-  slider.addEventListener('mouseleave', function () {
-    innerSlider.autoplay.stop();
-  });
+    slider.addEventListener('mouseleave', function () {
+      innerSlider.autoplay.stop();
+    });
+  }
 
   // Slidera tıklama olayı ekle
   slider.addEventListener('mousedown', function (event) {
-    event.preventDefault(); // Varsayılan davranışı engelle
+    event.preventDefault();
   });
 });
+
+
 
 
 const modal = document.getElementById('image-modal');
